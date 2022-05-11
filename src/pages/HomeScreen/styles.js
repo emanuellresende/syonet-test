@@ -13,3 +13,7 @@ width: 60%;
 height: 60%;
 background-color: red;
 `
+export const mapStyled = {
+  width: '100%',
+  height: '100%'
+};

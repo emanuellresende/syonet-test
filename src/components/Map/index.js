@@ -1,17 +1,13 @@
 import React, { useState, useCallback } from 'react'
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+import { mapStyled } from '../../pages/HomeScreen/styles';
 
-const containerStyle = {
-  width: '100%',
-  height: '100%'
-};
 
-const center = {
-  lat: -3.745,
-  lng: -38.523
-};
 
 export default function Map() {
+  const [latitude, setLatitude] = useState(-10);
+  const [longitude, setLongitude] = useState(-50);
+  const [position, setPosition] = useState([latitude, longitude]);
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: 'AIzaSyAsWaPP5dQAMBu6ovfr-0XgMoTAP1FTF-g',
@@ -31,7 +27,7 @@ export default function Map() {
 
   return isLoaded ? (
     <GoogleMap
-      mapContainerStyle={containerStyle}
+      mapContainerStyle={mapStyled}
       center={center}
       zoom={10}
       onLoad={onLoad}
@@ -42,3 +38,9 @@ export default function Map() {
     </GoogleMap>
   ) : <></>
 }
+
+
+const center = {
+  lat: -3.745,
+  lng: -38.523
+};
