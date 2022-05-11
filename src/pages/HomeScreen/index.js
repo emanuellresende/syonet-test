@@ -1,7 +1,7 @@
 import React, { Component } from 'react'; import { Map, GoogleApiWrapper } from 'google-maps-react';
 const mapStyles = {
-  width: '100%',
-  height: '100%'
+  width: '45%',
+  height: '45%'
 };
 export class HomeScreen extends Component {
   render() {
