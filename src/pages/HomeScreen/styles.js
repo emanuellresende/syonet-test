@@ -7,3 +7,8 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
+export const Container = styled.div`
+width: 45vw;
+height: 45vh;
+`
