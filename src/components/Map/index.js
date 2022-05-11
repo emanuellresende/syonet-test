@@ -4,7 +4,7 @@ import { mapStyled } from '../../pages/HomeScreen/styles';
 
 
 
-export default function Map() {
+export default function Map(props) {
   const [latitude, setLatitude] = useState(-10);
   const [longitude, setLongitude] = useState(-50);
   const [position, setPosition] = useState([latitude, longitude]);
@@ -29,7 +29,7 @@ export default function Map() {
     <GoogleMap
       mapContainerStyle={mapStyled}
       center={center}
-      zoom={10}
+      zoom={props.zoom}
       onLoad={onLoad}
       onUnmount={onUnmount}
     >
