@@ -1,13 +1,11 @@
-import React from 'react';
-import { Wrapper, Status } from "@googlemaps/react-wrapper";
-
-// import { Container } from './styles';
-
-function HomeScreen() {
-  return(
-    <Wrapper apiKey={"AIzaSyAsWaPP5dQAMBu6ovfr-0XgMoTAP1FTF-g"}>
-</Wrapper>
-  );
+import { Container, Wrapper } from './styles'
+import Map from '../../components/Map'
+export default function HomeScreen() {
+  return (
+    <Wrapper>
+<Container>
+  <Map/>
+</Container>
+    </Wrapper>
+  )
 }
-
-export default HomeScreen;

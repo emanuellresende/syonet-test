@@ -1,18 +1,44 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useState, useCallback } from 'react'
+import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 
-// import { Container } from './styles';
+const containerStyle = {
+  width: '100%',
+  height: '100%'
+};
 
-function Map() {
-  const ref = useRef(null)
-  const [map, setMap] = useState();
-  useEffect(() => {
-    if (ref.current && !map) {
-      setMap(new window.google.maps.Map(ref.current, {}));
-    }
-  }, [ref, map]);
+const center = {
+  lat: -3.745,
+  lng: -38.523
+};
 
+export default function Map() {
+  const { isLoaded } = useJsApiLoader({
+    id: 'google-map-script',
+    googleMapsApiKey: 'AIzaSyAsWaPP5dQAMBu6ovfr-0XgMoTAP1FTF-g',
+  })
 
-  return <div ref={ref} />
+  const [map, setMap] = useState(null)
+
+  const onLoad = useCallback(function callback(map) {
+    const bounds = new window.google.maps.LatLngBounds(center);
+    map.fitBounds(bounds);
+    setMap(map)
+  }, [])
+
+  const onUnmount = useCallback(function callback(map) {
+    setMap(null)
+  }, [])
+
+  return isLoaded ? (
+    <GoogleMap
+      mapContainerStyle={containerStyle}
+      center={center}
+      zoom={10}
+      onLoad={onLoad}
+      onUnmount={onUnmount}
+    >
+      {/* vou add o mark */}
+      <></>
+    </GoogleMap>
+  ) : <></>
 }
-
-export default Map;
