@@ -21,4 +21,5 @@ Abra [http://localhost:3000](http://localhost:3000) para ver no seu navegador.
 
 ![1](https://user-images.githubusercontent.com/46730164/168183534-9168a409-817a-4e76-a429-9db951ed73ab.png)
 
-![2](https://user-images.githubusercontent.com/46730164/168183537-0bc1946b-07cc-4301-b9fa-af64f03d3486.png)
+
+![2](https://user-images.githubusercontent.com/46730164/168183613-316887c2-4c57-49f5-a620-2c8b809db9ca.png)
