@@ -4,6 +4,8 @@ import Map from '../../components/Map'
 
 export default function HomeScreen() {
   const [zoom, setZoom] = useState(1);
+
+
   return (
 
     <Wrapper>
@@ -11,7 +13,7 @@ export default function HomeScreen() {
       <Map zoom={zoom}>
 
       </Map>
-     
+
     </Wrapper>
   )
 }
