@@ -3,7 +3,6 @@ import { GoogleMap, useJsApiLoader} from '@react-google-maps/api';
 import { FormComponent, mapStyled, Wrapper, Input, InputSubmit } from './styles';
 import Markers from '../Markers'
 
-
 export default function Map(props) {
 
   const [latitude, setLatitude] = useState('');
@@ -14,7 +13,7 @@ export default function Map(props) {
   const [isMarked, setisMarked] = useState(false);
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: 'AIzaSyAsWaPP5dQAMBu6ovfr-0XgMoTAP1FTF-g',
+    googleMapsApiKey: process.env.REACT_APP_TOKEN_ACCESS_MAP,
   })
 
   // eslint-disable-next-line no-unused-vars
@@ -32,9 +31,7 @@ export default function Map(props) {
     setCenter({ lat: latFormated, lng: lngFormated })
     setLocations(locations => [...locations, { cord: { lat: latFormated, lng: lngFormated }, text: text }]);
   }
-
   return isLoaded ? (
-
     <GoogleMap
       mapContainerStyle={mapStyled}
       center={center}
@@ -65,7 +62,6 @@ export default function Map(props) {
       </Wrapper>
 
       <Markers locations={locations} isMarked={isMarked} label={text} />
-
     </GoogleMap>
   ) : <></>
 }
