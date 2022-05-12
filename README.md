@@ -10,7 +10,7 @@ Na pasta .env troque o codigo de acesso do google maps pelo seu codigo, obs ja e
 
 Na pasta do projeto rode o codigo:
 
-### `npm install` ou yarn install
+### `npm install` ou `yarn install`
 
 Logo em Seguida Rode:
 ### `npm start` ou `yarn start`
