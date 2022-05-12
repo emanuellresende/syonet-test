@@ -2,6 +2,7 @@ import React, { useState, useCallback } from 'react'
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 import { mapStyled } from './styles';
 import Markers from '../Markers';
+import Form from '../Form';
 
 
 
@@ -37,7 +38,7 @@ export default function Map(props) {
     >
       {/* vou add o mark */}
       <></>
-      <Markers />
+
     </GoogleMap>
   ) : <></>
 }
