@@ -27,7 +27,7 @@ export default function Map(props) {
   }, [])
 
   return isLoaded ? (
-    
+
     <GoogleMap
       mapContainerStyle={mapStyled}
       center={center}
@@ -37,7 +37,7 @@ export default function Map(props) {
     >
       {/* vou add o mark */}
       <></>
-      <Markers/>
+      <Markers />
     </GoogleMap>
   ) : <></>
 }

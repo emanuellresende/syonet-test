@@ -6,7 +6,7 @@ const lat = -20.452208
 const lng = -45.438752
 export default function Markers(props) {
   return (
-    <Marker position={center} />
+    <Marker position={center} label="melo" />
   )
 }
 const center = {
