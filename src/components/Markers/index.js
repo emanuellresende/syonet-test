@@ -1,6 +1,5 @@
 import React from 'react'
-import { GoogleMap, LoadScript, MarkerClusterer, Marker } from '@react-google-maps/api';
-import imageURL from '../../images/MarkerClusterer.png'
+import { Marker } from '@react-google-maps/api';
 
 const lat = -20.452208
 const lng = -45.438752

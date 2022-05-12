@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react'
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
-import { mapStyled } from '../../pages/HomeScreen/styles';
+import { mapStyled } from './styles';
 import Markers from '../Markers';
 
 
@@ -31,7 +31,7 @@ export default function Map(props) {
     <GoogleMap
       mapContainerStyle={mapStyled}
       center={center}
-      zoom={16}
+      zoom={2}
       onLoad={onLoad}
       onUnmount={onUnmount}
     >

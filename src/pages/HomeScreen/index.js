@@ -5,12 +5,15 @@ import Markers from '../../components/Markers';
 export default function HomeScreen() {
   const [zoom, setZoom] = useState(1);
   return (
+
     <Wrapper>
+    
+      <Map zoom={zoom}>
+        <Markers />
+      </Map>
       <Container>
-        <Map zoom={zoom}>
-         <Markers/>
-        </Map>
-      </Container>
+
+</Container>
     </Wrapper>
   )
 }

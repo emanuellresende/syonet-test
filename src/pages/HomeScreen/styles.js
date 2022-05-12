@@ -4,16 +4,16 @@ export const Wrapper = styled.div`
   display: flex;
   height: 100vh;
   width: 100vw;
-  justify-content: center;
-  align-items: center;
+justify-content: center;
+
 `;
 
+
 export const Container = styled.div`
-width: 60%;
-height: 60%;
-background-color: red;
+width: 25%;
+border-radius: 5px;
+height: 10%;
+background-color: white;
+position: absolute;
+margin-top: 1%;
 `
-export const mapStyled = {
-  width: '100%',
-  height: '100%'
-};
