@@ -1,13 +1,14 @@
 import { Container, Wrapper } from './styles'
 import React, { useState } from 'react'
 import Map from '../../components/Map'
+import Markers from '../../components/Markers';
 export default function HomeScreen() {
-  const [zoom, setZoom] = useState(14);
+  const [zoom, setZoom] = useState(1);
   return (
     <Wrapper>
       <Container>
         <Map zoom={zoom}>
-
+         <Markers/>
         </Map>
       </Container>
     </Wrapper>

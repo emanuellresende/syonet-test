@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from 'react'
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 import { mapStyled } from '../../pages/HomeScreen/styles';
+import Markers from '../Markers';
 
 
 
@@ -26,21 +27,23 @@ export default function Map(props) {
   }, [])
 
   return isLoaded ? (
+    
     <GoogleMap
       mapContainerStyle={mapStyled}
       center={center}
-      zoom={props.zoom}
+      zoom={16}
       onLoad={onLoad}
       onUnmount={onUnmount}
     >
       {/* vou add o mark */}
       <></>
+      <Markers/>
     </GoogleMap>
   ) : <></>
 }
 
 
 const center = {
-  lat: -3.745,
-  lng: -38.523
+  lat: -20.452208,
+  lng: -45.438752
 };
