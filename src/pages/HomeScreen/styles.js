@@ -10,10 +10,12 @@ justify-content: center;
 
 
 export const Container = styled.div`
-width: 25%;
+width: 35%;
 border-radius: 5px;
 height: 10%;
 background-color: white;
 position: absolute;
 margin-top: 1%;
+
+
 `
