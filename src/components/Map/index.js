@@ -19,11 +19,11 @@ export default function Map(props) {
 
   const [map, setMap] = useState(null)
 
-  const onLoad = useCallback(function callback(map) {
-    const bounds = new window.google.maps.LatLngBounds(center);
-    map.fitBounds(bounds);
-    setMap(map)
-  }, [])
+  // const onLoad = useCallback(function callback(map) {
+  //   const bounds = new window.google.maps.LatLngBounds(center);
+  //   map.fitBounds(bounds);
+  //   setMap(map)
+  // }, [])
 
   const onUnmount = useCallback(function callback(map) {
     setMap(null)
@@ -35,37 +35,34 @@ export default function Map(props) {
     const lngFormated = parseFloat(longitude)
     setisMarked(true);
     setCenter({ lat: latFormated, lng: lngFormated })
-    setLocations(locations => [...locations, { lat: latFormated, lng: lngFormated }]);
+    setLocations(locations => [...locations, { cord: { lat: latFormated, lng: lngFormated }, text: text }]);
   }
 
- 
+
   return isLoaded ? (
 
     <GoogleMap
       mapContainerStyle={mapStyled}
       center={center}
-      zoom={2}
-      onLoad={onLoad}
+      zoom={12}
       onUnmount={onUnmount}
     >
-
       <Wrapper>
         <FormComponent onSubmit={onHandleSubmit}>
-          <Input type={'number'} id='latitude' onChange={(e) => {
+          <Input type={'text'} id='latitude' onChange={(e) => {
             setLatitude(e.target.value)
           }} value={latitude} placeholder={'latitude'} />
-          <Input type={'number'} value={longitude} placeholder='longitude' id='longitude' onChange={(e) => {
+          <Input type={'text'} value={longitude} placeholder='longitude' id='longitude' onChange={(e) => {
             setLongitude(e.target.value)
           }} />
           <Input type={'text'} value={text} placeholder='Text' id='text' onChange={(e) => {
             setText(e.target.value)
           }} />
           <InputSubmit type="submit" value={"Mark"} />
-          {console.log(locations)}
         </FormComponent>
       </Wrapper>
 
-      <Markers locations={locations} isMarked={isMarked} label={text}/>
+      <Markers locations={locations} isMarked={isMarked} label={text} />
 
     </GoogleMap>
   ) : <></>
