@@ -1,15 +1,16 @@
 import React, { useState, useCallback } from 'react'
-import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
-import { mapStyled } from './styles';
+import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
+import { FormComponent, mapStyled, Wrapper, Input, InputSubmit } from './styles';
 import Markers from '../Markers';
-import Form from '../Form';
+
 
 
 
 export default function Map(props) {
-  const [latitude, setLatitude] = useState(-10);
-  const [longitude, setLongitude] = useState(-50);
-  const [position, setPosition] = useState([latitude, longitude]);
+  const [latitude, setLatitude] = useState("");
+  const [longitude, setLongitude] = useState("");
+  const [center, setCenter] = useState({ lat: -20.452208, lng: -45.438752});
+  const [text, setText] = useState('');
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: 'AIzaSyAsWaPP5dQAMBu6ovfr-0XgMoTAP1FTF-g',
@@ -36,15 +37,25 @@ export default function Map(props) {
       onLoad={onLoad}
       onUnmount={onUnmount}
     >
-      {/* vou add o mark */}
-      <></>
+
+      <Wrapper>
+        <FormComponent>
+          <Input type={'number'} id='latitude' onChange={(e) => {
+            setLatitude(e.target.value)
+          }} value={latitude} placeholder={'latitude'} />
+          <Input type={'number'} value={longitude} placeholder='longitude' id='longitude' onChange={(e) => {
+            setLongitude(e.target.value)
+          }} />
+          <Input type={'text'} value={text} placeholder='Text' id='text' onChange={(e) => {
+            setText(e.target.value)
+          }} />
+          <InputSubmit type="submit" value={"Mark"} />
+        </FormComponent>
+      </Wrapper>
 
     </GoogleMap>
   ) : <></>
 }
 
 
-const center = {
-  lat: -20.452208,
-  lng: -45.438752
-};
+
