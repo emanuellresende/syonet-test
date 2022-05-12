@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Marker, MarkerClusterer } from '@react-google-maps/api';
 
 
@@ -7,8 +7,7 @@ function createKey(location) {
 }
 
 export default function Markers(props) {
-  const [text, setText] = useState();
-  if (props.isMarked == true) {
+  if (props.isMarked === true) {
     return (
 
       <MarkerClusterer>

@@ -38,8 +38,7 @@ text-align: center;
 `
 
 export const InputSubmit = styled.input.attrs({ type: 'submit' })`
-
-	width: 70px;
+  width: 100px;
   height: 25px;
   margin-top: 5%;
 	background-color: #3C2B57;
@@ -48,7 +47,6 @@ export const InputSubmit = styled.input.attrs({ type: 'submit' })`
 	border: 1px solid white;
 	color: white;
 	outline: none;
-  text-align: center;
 `
 
 
