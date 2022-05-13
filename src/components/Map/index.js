@@ -1,5 +1,5 @@
-import React, { useState, useCallback} from 'react'
-import { GoogleMap, useJsApiLoader} from '@react-google-maps/api';
+import React, { useState, useCallback } from 'react'
+import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 import { FormComponent, mapStyled, Wrapper, Input, InputSubmit } from './styles';
 import Markers from '../Markers'
 
@@ -23,13 +23,32 @@ export default function Map(props) {
     setMap(null)
   }, [])
 
+  function verifyNumber(number) {
+    if (isNaN(number) === false) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+
   function onHandleSubmit(e) {
     e.preventDefault()
     const latFormated = parseFloat(latitude);
     const lngFormated = parseFloat(longitude)
-    setisMarked(true);
-    setCenter({ lat: latFormated, lng: lngFormated })
-    setLocations(locations => [...locations, { cord: { lat: latFormated, lng: lngFormated }, text: text }]);
+    if (verifyNumber(latFormated) === true && verifyNumber(lngFormated)) {
+      if (text === '') {
+        alert('Criado ponto de marcacao de cordenada sem texto de descricao')
+      }
+      setisMarked(true);
+      setCenter({ lat: latFormated, lng: lngFormated })
+      setLocations(locations => [...locations, { cord: { lat: latFormated, lng: lngFormated }, text: text }]);
+    }
+    else {
+      alert("Digite somente numeros na latitude e longitude")
+    }
+
+
   }
   return isLoaded ? (
     <GoogleMap
