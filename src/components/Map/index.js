@@ -32,18 +32,38 @@ export default function Map(props) {
     }
   }
 
+  function validateCoordinates(lat, long) {
+    if (lat <= 90 && lat >= -90 && long <= 180 && long >= -180) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+
   function onHandleSubmit(e) {
     e.preventDefault()
     const latFormated = parseFloat(latitude);
     const lngFormated = parseFloat(longitude)
+
     if (verifyNumber(latFormated) === true && verifyNumber(lngFormated)) {
-      if (text === '') {
-        alert('Criado ponto de marcacao de cordenada sem texto de descricao')
+
+      if (validateCoordinates(latFormated, lngFormated) === true) {
+
+        if (text === '') {
+          alert('Criado ponto de marcacao de cordenada sem texto de descricao')
+        }
+
+        setisMarked(true);
+        setCenter({ lat: latFormated, lng: lngFormated })
+        setLocations(locations => [...locations, { cord: { lat: latFormated, lng: lngFormated }, text: text }]);
       }
-      setisMarked(true);
-      setCenter({ lat: latFormated, lng: lngFormated })
-      setLocations(locations => [...locations, { cord: { lat: latFormated, lng: lngFormated }, text: text }]);
+
+      else {
+        alert("Insira cordenadas validas");
+      }
     }
+
     else {
       alert("Digite somente numeros na latitude e longitude")
     }
